@@ -1,0 +1,6 @@
+# Hera Wellness Studio — https://herawellnessstudio.com
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+Sitemap: https://herawellnessstudio.com/sitemap.xml

@@ -1,0 +1,120 @@
+/* =========================================================
+   Design tokens — from the Hera Brand Guidelines
+   Palette: #2A4A5C primary blue · #7BA3B3 secondary blue
+            #010002 black · #FFFFFF white
+   Tints/shades below are derived only from those four colours.
+   Type: Canva Sans — Bold (primary) and Regular (secondary),
+   letter spacing 1%. See fonts.css for the font files.
+   Breakpoints used in media queries: 600px, 900px, 1200px.
+   ========================================================= */
+
+:root {
+  /* Brand colour */
+  --c-blue: #2a4a5c;
+  --c-blue-700: #223e4d;
+  --c-blue-900: #17303d;
+  --c-mist: #7ba3b3;
+  --c-mist-600: #4b7385; /* secondary blue, darkened for AA text contrast on white and mist */
+  --c-mist-300: #b0c9d3;
+  --c-mist-200: #cfdfe5;
+  --c-mist-100: #e5eef1;
+  --c-mist-50: #f3f7f8;
+  --c-black: #010002;
+  --c-white: #ffffff;
+
+  /* Semantic colour */
+  --c-bg: var(--c-white);
+  --c-bg-soft: var(--c-mist-50);
+  --c-heading: var(--c-black);
+  --c-text: #1f2a30;
+  --c-text-soft: #50616b;
+  --c-accent: var(--c-mist-600);
+  --c-on-dark: var(--c-white);
+  --c-on-dark-soft: rgba(255, 255, 255, 0.74);
+  --c-line: rgba(1, 0, 2, 0.1);
+  --c-line-strong: rgba(1, 0, 2, 0.22);
+  --c-line-blue: rgba(42, 74, 92, 0.22);
+  --c-line-on-dark: rgba(255, 255, 255, 0.18);
+  --c-focus: var(--c-blue);
+
+  /* Typography */
+  --font-primary: 'Canva Sans', 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-secondary: var(--font-primary);
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  --tracking: 0.01em; /* brand: 1% */
+  --tracking-caps: 0.16em;
+  --tracking-tight: -0.02em;
+  --tracking-display: -0.035em;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1.0625rem;
+  --fs-lg: 1.1875rem;
+  --fs-xl: clamp(1.25rem, 1.7vw, 1.5rem);
+  --fs-h4: 1.25rem;
+  --fs-h3: clamp(1.5rem, 2.4vw, 2rem);
+  --fs-h2: clamp(2.25rem, 5vw, 4.25rem);
+  --fs-h1: clamp(3rem, 8vw, 7.5rem);
+  --fs-display: clamp(2.5rem, 6.4vw, 5.75rem);
+
+  --lh-display: 0.98;
+  --lh-tight: 1.06;
+  --lh-snug: 1.25;
+  --lh-body: 1.72; /* brand: paragraph line height auto + 4 */
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --section-y: clamp(5rem, 11vw, 10rem);
+
+  /* Layout */
+  --container: 1400px;
+  --container-narrow: 860px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --header-h: 84px;
+
+  /* Borders & shape — the brand is square-edged */
+  --border: 1px solid var(--c-line);
+  --border-strong: 1px solid var(--c-line-strong);
+  --radius-sm: 2px;
+  --radius-pill: 999px;
+  --radius-arch: 999px 999px 0 0;
+  --shadow-soft: 0 30px 60px -30px rgba(1, 0, 2, 0.3);
+
+  /* Buttons */
+  --btn-h: 54px;
+  --btn-h-sm: 44px;
+  --btn-px: 1.9rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 200ms;
+  --dur: 450ms;
+  --dur-slow: 1000ms;
+
+  --z-decor: 0;
+  --z-content: 1;
+  --z-mobile-bar: 40;
+  --z-header: 50;
+  --z-drawer: 90;
+  --z-dialog: 100;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --header-h: 68px;
+  }
+}

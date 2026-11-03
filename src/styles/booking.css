@@ -1,0 +1,341 @@
+/* =========================================================
+   Booking — shared popup and panel (Consultation call / Direct booking)
+   ========================================================= */
+
+.booking-modal {
+  width: min(760px, calc(100vw - 2rem));
+  max-width: none;
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 0;
+  border-top: 3px solid var(--c-blue);
+  background: var(--c-white);
+  color: var(--c-text);
+  box-shadow: 0 40px 80px -30px rgba(23, 48, 61, 0.45);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.booking-modal::backdrop {
+  background: rgba(23, 48, 61, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.booking-modal[open] {
+  animation: dialog-in var(--dur) var(--ease-out);
+}
+
+.booking-modal[open]::backdrop {
+  animation: fade var(--dur) ease;
+}
+
+.booking-modal.is-closing {
+  animation: dialog-out 220ms ease forwards;
+}
+
+.booking-modal.is-closing::backdrop {
+  animation: fade-out 220ms ease forwards;
+}
+
+@keyframes dialog-out {
+  to {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.booking-modal__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem) var(--space-5);
+  background: var(--c-mist-50);
+}
+
+.booking-modal__head .h3 {
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+}
+
+.booking-modal__head p {
+  margin-top: var(--space-2);
+  max-width: 46ch;
+}
+
+.booking-modal__close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border: var(--border-strong);
+  border-radius: 50%;
+  background: var(--c-white);
+  color: var(--c-black);
+  transition:
+    background-color var(--dur-fast) ease,
+    color var(--dur-fast) ease,
+    transform var(--dur) var(--ease-out);
+}
+
+.booking-modal__close:hover {
+  background: var(--c-black);
+  color: var(--c-white);
+  transform: rotate(90deg);
+}
+
+.booking-modal .booking__tabs {
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  background: var(--c-mist-50);
+}
+
+.booking--compact .booking__form,
+.booking-modal .booking__success {
+  padding: var(--space-6) clamp(1.25rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.booking__tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: var(--border-strong);
+}
+
+.booking__tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 56px;
+  padding: var(--space-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-text-soft);
+  transition: color var(--dur-fast) ease;
+}
+
+.booking__tab .icon {
+  width: 18px;
+  height: 18px;
+  color: var(--c-blue);
+}
+
+.booking__tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--c-black);
+  transform: scaleX(0);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.booking__tab:hover,
+.booking__tab[aria-selected='true'] {
+  color: var(--c-black);
+}
+
+.booking__tab[aria-selected='true']::after {
+  transform: scaleX(1);
+}
+
+.booking__form {
+  padding-top: var(--space-6);
+}
+
+.booking__hint {
+  font-size: var(--fs-sm);
+  color: var(--c-text-soft);
+}
+
+.booking .field__error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.booking .field__error .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.booking .field__input[aria-invalid='true'] {
+  background: #fdf6f6;
+}
+
+.booking__submit {
+  min-height: 58px;
+}
+
+.booking__submit:disabled {
+  cursor: progress;
+  opacity: 0.8;
+}
+
+.booking__success {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+}
+
+.booking__success > .icon {
+  width: 48px;
+  height: 48px;
+  color: var(--c-blue);
+}
+
+.booking__success strong {
+  color: var(--c-black);
+}
+
+.booking__success:focus {
+  outline: none;
+}
+
+@media (max-width: 599px) {
+  /* Bottom sheet on phones */
+  .booking-modal {
+    width: 100%;
+    max-height: 94dvh;
+    margin: auto 0 0;
+  }
+
+  .booking__tab {
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* ---------- Clinic film ---------- */
+
+.studio-film__grid {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .studio-film__grid {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+    gap: clamp(3rem, 6vw, 7rem);
+  }
+}
+
+.studio-film__text > * + * {
+  margin-top: var(--space-5);
+}
+
+.studio-film__video {
+  position: relative;
+}
+
+.studio-film__video::before {
+  content: '';
+  position: absolute;
+  inset: var(--space-5) calc(var(--space-5) * -1) calc(var(--space-5) * -1) var(--space-5);
+  border: 1px solid var(--c-blue);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.studio-film__video .video-poster__play {
+  width: 96px;
+  height: 96px;
+}
+
+.studio-film__leaf {
+  top: -14%;
+  right: -4%;
+  width: 90px;
+}
+
+.studio-film__ripples {
+  left: -10%;
+  bottom: -20%;
+  width: clamp(300px, 30vw, 460px);
+}
+
+/* ---------- Treatment card actions ---------- */
+
+/* Footer row stays on the card's bottom edge whatever the copy length. */
+.tcard {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.tcard__actions {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.tcard__actions .btn {
+  padding-inline: 1rem;
+}
+
+/* =========================================================
+   Phones: calmer and cleaner. Desktop and tablet keep every
+   decoration, reveal and parallax effect.
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .decor:not(.leaf-divider .decor),
+  .hero__sprig,
+  .hero__frame {
+    display: none;
+  }
+
+  .reveal-ready .reveal,
+  .reveal-ready .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .reveal-ready .reveal-img::after {
+    display: none;
+  }
+
+  .reveal-ready .reveal-img > img,
+  .reveal-ready .reveal-img .media > img {
+    transform: none;
+    transition: none;
+  }
+
+  [data-parallax] {
+    translate: none !important;
+  }
+
+  .enter-img::after {
+    animation-duration: 0.7s;
+  }
+
+  .hero__badge-ring {
+    animation: none;
+  }
+
+  .video-poster__play::before {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  .reviews-hero__video::before,
+  .studio-film__video::before {
+    display: none;
+  }
+}

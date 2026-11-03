@@ -1,0 +1,114 @@
+/* =========================================================
+   Decorations — positioning, colour and line-draw animation
+   for the SVGs in components/decor/Decor.jsx
+   ========================================================= */
+
+.decor {
+  position: absolute;
+  z-index: var(--z-decor);
+  color: var(--decor-color, var(--c-mist));
+  opacity: var(--decor-opacity, 0.7);
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.decor .decor-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* Inline decorations (inside text flow) */
+.decor--inline {
+  position: relative;
+}
+
+.decor--blue {
+  --decor-color: var(--c-blue);
+}
+
+.decor--black {
+  --decor-color: var(--c-black);
+}
+
+.decor--white {
+  --decor-color: var(--c-white);
+}
+
+.decor--faint {
+  --decor-opacity: 0.35;
+}
+
+.decor--soft {
+  --decor-opacity: 0.55;
+}
+
+.on-dark .decor--white.decor--faint {
+  --decor-opacity: 0.16;
+}
+
+.decor--pebble {
+  --decor-color: var(--c-mist-100);
+  --decor-opacity: 1;
+}
+
+.on-dark .decor--pebble {
+  --decor-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Line-draw reveal: paths use pathLength="1" */
+.reveal-ready .decor .draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.2s var(--ease-in-out);
+}
+
+.reveal-ready .decor .draw--late {
+  transition-delay: 0.6s;
+}
+
+.reveal-ready .decor.is-visible .draw {
+  stroke-dashoffset: 0;
+}
+
+/* Ripples breathe slowly once drawn */
+.decor--ripples.is-visible ellipse {
+  animation: ripple 9s var(--ease-in-out) infinite;
+  animation-delay: calc(var(--i) * -1.2s);
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+/* Hairline divider with a leaf pair */
+.leaf-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  color: var(--c-mist);
+}
+
+.leaf-divider span {
+  flex: 1;
+  height: 1px;
+  background: var(--c-line);
+}
+
+.leaf-divider .decor {
+  position: static;
+  width: 60px;
+  height: 24px;
+  opacity: 1;
+}
+
+.on-dark .leaf-divider span {
+  background: var(--c-line-on-dark);
+}
+
+@media (max-width: 899px) {
+  .decor--hide-m {
+    display: none;
+  }
+}
