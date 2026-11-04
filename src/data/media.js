@@ -52,6 +52,14 @@ export const testimonialVideo = video({
   duration: 'PT1M12S',
 });
 
+// Written-review client photos: 168px head-and-shoulders crops of the supplied
+// originals in media-masters/testimonials/.
+export const clientPhotos = {
+  aileen: '/images/testimonials/aileen-prada.webp',
+  jonalyn: '/images/testimonials/jonalyn-jasmin.webp',
+  lyka: '/images/testimonials/lyka-francisco.webp',
+};
+
 // Clinic film (720p web version).
 export const clinicVideo = video({
   src: '/images/general/clinic-video.mp4',
@@ -72,6 +80,17 @@ export const studioVideo = video({
   title: 'A walk to Hera Wellness Studio and its reception',
   duration: 'PT0M40S',
 });
+
+// Home hero film (web versions of media-masters/home-hero-video-2160p.mp4, no
+// audio track) and its opening frame, shown until it plays or if it can't.
+export const heroVideo = {
+  src: '/images/general/home-hero.mp4',
+  srcSmall: '/images/general/home-hero-720.mp4',
+};
+export const heroPoster = {
+  ...img('general/home-hero-poster', 1080, 1080, 600),
+  alt: 'Illuminated Hera Wellness Studio sign above the glass entrance of the studio',
+};
 
 // Treatment images: public/images/treatments/<group>/<group>-N.webp
 // (1000px) plus <group>-N-600.webp. To add photos, drop the next numbered

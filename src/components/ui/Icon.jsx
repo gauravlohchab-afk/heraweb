@@ -22,6 +22,7 @@ import {
   Phone,
   Play,
   Quote,
+  Star,
   UserRound,
   X,
 } from 'lucide-react';
@@ -53,6 +54,7 @@ const lucide = {
   pin: MapPin,
   play: Play,
   quote: Quote,
+  star: Star,
   user: UserRound,
 };
 
@@ -82,7 +84,7 @@ export default function Icon({ name, className = '', title }) {
   return (
     <Glyph
       className={`icon icon--${name} ${className}`}
-      fill={name === 'play' ? 'currentColor' : 'none'}
+      fill={name === 'play' || name === 'star' ? 'currentColor' : 'none'}
       focusable="false"
       {...a11y}
     />

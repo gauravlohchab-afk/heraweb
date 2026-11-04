@@ -33,7 +33,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ReviewsSection num="02" />
+      <ReviewsSection num="02" writtenOnly />
       <AboutIntro num="03" />
       <StudioFilm num="" />
       <Philosophy num="04" />

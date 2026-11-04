@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { center } from '../../data/media.js';
+import { center, studioVideo } from '../../data/media.js';
 import Media from '../ui/Media.jsx';
 import Icon from '../ui/Icon.jsx';
 import { Tree } from '../decor/Decor.jsx';
@@ -11,7 +11,7 @@ export default function AboutIntro({ num = '01' }) {
       <div className="container about-intro__grid">
         <div className="about-intro__visual">
           <Tree className="about-intro__tree decor--blue decor--soft" />
-          <Media image={center.stairs} ratio="4 / 5" className="about-intro__plant reveal-img" sizes="(min-width: 900px) 26vw, 60vw" data-parallax="-0.04" />
+          <Media image={center.stairs} video={studioVideo} ratio="4 / 5" className="about-intro__plant reveal-img" sizes="(min-width: 900px) 26vw, 60vw" data-parallax="-0.04" />
           <Media image={center.doors} ratio="1 / 1" className="about-intro__stairs reveal-img" style={{ '--d': 2 }} sizes="(min-width: 900px) 18vw, 40vw" />
         </div>
 

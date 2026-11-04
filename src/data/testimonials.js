@@ -1,4 +1,4 @@
-import { testimonialVideo } from './media.js';
+import { clientPhotos, testimonialVideo } from './media.js';
 
 // The studio's one client testimonial video (img/client-feedback.mp4).
 // Name and title are shown on screen in the video itself; the transcript is
@@ -29,18 +29,24 @@ export const reviews = [
   {
     name: 'Aileen Prada',
     source: 'Facebook client',
+    rating: 4.5,
+    photo: clientPhotos.aileen,
     quote:
       'I had stubborn acne scars for years, but after my CO2 Laser sessions, my skin feels smoother and more radiant. It’s like I got a fresh start!',
   },
   {
     name: 'Jonalyn Jasmin',
     source: 'Instagram client',
+    rating: 4.5,
+    photo: clientPhotos.jonalyn,
     quote:
       'I was nervous at first, but the treatment was more comfortable than expected. My fine lines faded, and now people tell me I look so refreshed!',
   },
   {
     name: 'Lyka Francisco',
     source: 'Facebook client',
+    rating: 4.5,
+    photo: clientPhotos.lyka,
     quote:
       'I didn’t want injections or downtime, and HIFU was the perfect choice. My jawline looks sharper, and my skin feels tighter — love the results!',
   },

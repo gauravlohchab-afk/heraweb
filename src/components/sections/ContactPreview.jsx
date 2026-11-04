@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import { center } from '../../data/media.js';
 import Media from '../ui/Media.jsx';
 import Icon from '../ui/Icon.jsx';
+import Socials from '../ui/Socials.jsx';
 import { ContactDetails, StudioMap } from './ContactSection.jsx';
 
 // Home-page location preview; the full form lives on /contact/.
@@ -23,6 +24,7 @@ export default function ContactPreview({ num = '06' }) {
             <Link to="/contact/" className="btn btn--dark">
               Contact &amp; booking <Icon name="arrow" />
             </Link>
+            <Socials />
           </div>
         </div>
         <div className="contact-preview__visual">

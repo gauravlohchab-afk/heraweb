@@ -4,10 +4,11 @@ import SectionHead from '../ui/SectionHead.jsx';
 import ReviewQuote from '../ui/ReviewQuote.jsx';
 import Icon from '../ui/Icon.jsx';
 
-// Home-page reviews: the video client's own words plus the written reviews.
-const homeReviews = [{ name: ft.name, source: 'Video testimonial', quote: ft.pullQuote }, ...reviews];
+// The video client's own words plus the written reviews. `writtenOnly` (home page) drops the video client's card.
+const allReviews = [{ name: ft.name, source: 'Video testimonial', quote: ft.pullQuote }, ...reviews];
 
-export default function ReviewsSection({ num = '02' }) {
+export default function ReviewsSection({ num = '02', writtenOnly = false }) {
+  const shown = writtenOnly ? reviews : allReviews;
   return (
     <section className="section reviews-home" aria-labelledby="reviews-home-title">
       <div className="container">
@@ -26,8 +27,8 @@ export default function ReviewsSection({ num = '02' }) {
             </Link>
           }
         />
-        <div className="reviews-home__grid">
-          {homeReviews.map((r, i) => (
+        <div className={`reviews-home__grid${writtenOnly ? ' reviews-home__grid--3' : ''}`}>
+          {shown.map((r, i) => (
             <ReviewQuote key={r.name} review={r} index={i} />
           ))}
         </div>

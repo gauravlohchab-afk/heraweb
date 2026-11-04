@@ -62,6 +62,6 @@ preferredTime, age, paymentMethod` for bookings). Success is shown only after a 
 - **Prices:** intentionally not published anywhere on the site (pages, metadata or structured data).
 - **Testimonial video:** `featuredTestimonial` in `testimonials.js`; web file in `public/images/testimonials/`.
 
-Full-quality masters the site doesn't serve (4K testimonial, 1080p clinic film, full-size plant
+Full-quality masters the site doesn't serve (4K testimonial, 1080p clinic film, 2160p home hero film, client photo originals in `media-masters/testimonials/`, full-size plant
 photo, HydraFacial PNG originals, the PNG originals of the treatment photos in `media-masters/treatments/`) are in `media-masters/` — not public, and excluded from git.
 The previous static HTML site is kept in `legacy/` for reference.

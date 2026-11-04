@@ -197,6 +197,12 @@
   object-position: var(--pos, center);
 }
 
+/* Sits over the fallback image, so the frame never changes size */
+.media > .media__video {
+  position: absolute;
+  inset: 0;
+}
+
 .media--arch {
   border-radius: var(--radius-arch);
 }

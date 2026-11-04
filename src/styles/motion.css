@@ -111,7 +111,8 @@
   animation-delay: calc(var(--d, 0) * 150ms + 250ms);
 }
 
-.enter-img img {
+.enter-img img,
+.enter-img video {
   animation: settle 2s var(--ease-out) both;
   animation-delay: calc(var(--d, 0) * 150ms + 250ms);
 }
@@ -155,6 +156,7 @@
 }
 
 .reveal-ready .reveal-img > img,
+.reveal-ready .reveal-img > video,
 .reveal-ready .reveal-img .media > img {
   transform: scale(1.1);
   transition: transform 1.8s var(--ease-out);
@@ -162,6 +164,7 @@
 }
 
 .reveal-ready .reveal-img.is-visible > img,
+.reveal-ready .reveal-img.is-visible > video,
 .reveal-ready .reveal-img.is-visible .media > img {
   transform: none;
 }

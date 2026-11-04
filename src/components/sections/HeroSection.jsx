@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { brand, center } from '../../data/media.js';
+import { brand, heroPoster, heroVideo } from '../../data/media.js';
 import { site } from '../../data/site.js';
 import { featuredTestimonial } from '../../data/testimonials.js';
 import { categories, categoryCover, categoryPath, getTreatment, treatmentsIn } from '../../data/treatments.js';
@@ -8,7 +8,7 @@ import Icon from '../ui/Icon.jsx';
 import BookButton from '../ui/BookButton.jsx';
 import { Ripples, Sprig } from '../decor/Decor.jsx';
 
-// HydraFacial LED-mask photo from the studio, beside the corridor shot.
+// HydraFacial LED-mask photo from the studio, beside the hero film.
 const treatmentShot = getTreatment('facial', 'hydrafacial').image;
 
 export default function HeroSection() {
@@ -65,7 +65,8 @@ export default function HeroSection() {
         <div className="hero__visual">
           <span className="hero__frame" aria-hidden="true" />
           <Media
-            image={center.corridor}
+            image={heroPoster}
+            video={heroVideo}
             arch
             ratio="4 / 5"
             className="hero__main enter-img"

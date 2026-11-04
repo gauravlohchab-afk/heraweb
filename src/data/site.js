@@ -13,7 +13,7 @@ export const site = {
   whatsapp: null,
   hours: null,
   location: {
-    // Street address has not been supplied; locality comes from the live site's map pin.
+    // The studio's Google listing has no street address, only these coordinates.
     street: null,
     locality: 'Diliman, Quezon City',
     region: 'Metro Manila',
@@ -21,6 +21,10 @@ export const site = {
     country: 'PH',
     lat: 14.642113,
     lng: 121.040428,
+    // Google Maps ID of the Hera Wellness Studio listing.
+    mapsPlaceId: '0x3397b7fbcd761243:0xcc261eefe5e1291c',
+    mapsDirections:
+      'https://www.google.com/maps/dir//Hera+Wellness+Studio,+14.642113,+121.040428,+Diliman,+Quezon+City,+1100+Metro+Manila/@14.642122,120.957959,58433m/data=!3m1!1e3!4m9!4m8!1m0!1m5!1m1!1s0x3397b7fbcd761243:0xcc261eefe5e1291c!2m2!1d121.0403581!2d14.6421242!3e0',
   },
   social: {
     facebook: 'https://www.facebook.com/herawellnessstudioph/',
@@ -45,9 +49,10 @@ export const site = {
   },
 };
 
-const { lat, lng } = site.location;
-export const mapEmbedUrl = `https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s${lat},${lng}!6i16`;
-export const mapLinkUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+const { lat, lng, mapsPlaceId, mapsDirections } = site.location;
+// Embeds the listing itself (not a bare coordinate search), so the marker and place card name the studio.
+export const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1500!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s${mapsPlaceId}!2s${encodeURIComponent(site.name)}!5e0!3m2!1sen!2sph`;
+export const mapLinkUrl = mapsDirections;
 export const fullAddress = [site.location.street, site.location.locality, `${site.location.postalCode} ${site.location.region}`]
   .filter(Boolean)
   .join(', ');
