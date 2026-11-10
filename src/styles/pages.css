@@ -596,6 +596,7 @@
 }
 
 .quote {
+  border-radius: var(--radius-card);
   display: flex;
   flex-direction: column;
   gap: var(--space-5);

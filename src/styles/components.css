@@ -18,7 +18,7 @@
   background: var(--btn-bg);
   color: var(--btn-fg);
   border: 1px solid var(--btn-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-btn);
   font-family: var(--font-primary);
   font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
@@ -37,6 +37,7 @@
 
 /* Fill wipes up from the bottom on hover */
 .btn::before {
+  border-radius: inherit;
   content: '';
   position: absolute;
   inset: 0;
@@ -183,6 +184,7 @@
 /* ---------- Media frame & placeholder ---------- */
 
 .media {
+  border-radius: var(--radius-card);
   position: relative;
   overflow: hidden;
   background: var(--c-mist-100);
@@ -256,6 +258,7 @@
 /* ---------- Tags & prices ---------- */
 
 .tag {
+  border-radius: var(--radius-btn);
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
@@ -441,7 +444,7 @@
   padding: 0.85rem 1rem;
   background: var(--c-white);
   border: 1px solid var(--c-line-strong);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-btn);
   font-size: 1rem;
   transition:
     border-color var(--dur-fast) ease,
@@ -486,6 +489,7 @@ select.field__input {
 }
 
 .form-status {
+  border-radius: var(--radius-card);
   display: grid;
   gap: var(--space-3);
   padding: var(--space-5);
@@ -710,6 +714,7 @@ select.field__input {
 }
 
 .video-frame {
+  border-radius: var(--radius-card);
   position: relative;
   aspect-ratio: var(--ratio, 9 / 16);
   background: var(--c-blue-900);

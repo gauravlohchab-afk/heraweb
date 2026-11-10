@@ -3,6 +3,7 @@
    ========================================================= */
 
 .booking-modal {
+  border-radius: var(--radius-card);
   width: min(760px, calc(100vw - 2rem));
   max-width: none;
   max-height: calc(100dvh - 2rem);

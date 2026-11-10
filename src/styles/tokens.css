@@ -89,6 +89,8 @@
   --border: 1px solid var(--c-line);
   --border-strong: 1px solid var(--c-line-strong);
   --radius-sm: 2px;
+  --radius-btn: 6px; /* buttons, form fields, tags */
+  --radius-card: 10px; /* cards, image frames, panels, popups */
   --radius-pill: 999px;
   --radius-arch: 999px 999px 0 0;
   --shadow-soft: 0 30px 60px -30px rgba(1, 0, 2, 0.3);
