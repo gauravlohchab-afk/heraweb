@@ -3,6 +3,8 @@ import { categories, categoryPath, getCategory, treatmentsIn } from '../data/tre
 import PageHero from '../components/layout/PageHero.jsx';
 import TreatmentCard from '../components/treatments/TreatmentCard.jsx';
 import BookingCTA from '../components/sections/BookingCTA.jsx';
+import FaqSection from '../components/sections/FaqSection.jsx';
+import { categoryFaqs } from '../data/faqs.js';
 import NotFoundPage from './NotFoundPage.jsx';
 
 export default function CategoryPage() {
@@ -40,6 +42,16 @@ export default function CategoryPage() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        className="bg-soft"
+        faqs={categoryFaqs(category)}
+        title={
+          <>
+            {category.name}, <em>answered.</em>
+          </>
+        }
+      />
 
       <BookingCTA />
     </>

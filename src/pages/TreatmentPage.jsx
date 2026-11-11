@@ -9,6 +9,8 @@ import TreatmentGallery from '../components/treatments/TreatmentGallery.jsx';
 import TreatmentCard from '../components/treatments/TreatmentCard.jsx';
 import BookingPanel from '../components/booking/BookingPanel.jsx';
 import { Branch, Pebble, Ripples } from '../components/decor/Decor.jsx';
+import FaqSection from '../components/sections/FaqSection.jsx';
+import { treatmentFaqs } from '../data/faqs.js';
 import NotFoundPage from './NotFoundPage.jsx';
 
 export default function TreatmentPage() {
@@ -123,6 +125,15 @@ export default function TreatmentPage() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        faqs={treatmentFaqs(t)}
+        title={
+          <>
+            {t.name}, <em>answered.</em>
+          </>
+        }
+      />
 
       {related.length > 0 && (
         <section className="section" aria-labelledby="related-title">

@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const serverDir = path.join(root, 'dist-server');
 
-const { render, staticRoutes, getPageMeta } = await import(pathToFileURL(path.join(serverDir, 'entry-server.js')).href);
+const { render, staticRoutes, getPageMeta, buildLlmsTxt } = await import(pathToFileURL(path.join(serverDir, 'entry-server.js')).href);
 const { SITE_URL } = await import(pathToFileURL(path.join(root, 'src/data/site.js')).href);
 const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 
@@ -46,5 +46,8 @@ ${entries.join('\n')}
 `;
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap);
 
+// Plain-text summary for AI assistants (https://llmstxt.org).
+fs.writeFileSync(path.join(dist, 'llms.txt'), buildLlmsTxt());
+
 fs.rmSync(serverDir, { recursive: true, force: true });
-console.log(`wrote ${staticRoutes.length} pages, 404.html and sitemap.xml`);
+console.log(`wrote ${staticRoutes.length} pages, 404.html, sitemap.xml and llms.txt`);

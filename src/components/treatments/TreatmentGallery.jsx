@@ -51,7 +51,7 @@ export default function TreatmentGallery({ media, name }) {
             </span>
           </div>
         ) : (
-          <Media image={current} alt={current.alt} fit={fitFor(current)} sizes="(min-width: 900px) 50vw, 100vw" priority={active === 0} />
+          <Media image={current} alt={current.alt ?? `${name} treatment at Hera Wellness Studio, Quezon City${items.length > 1 ? ` (photo ${active + 1})` : ''}`} fit={fitFor(current)} sizes="(min-width: 900px) 50vw, 100vw" priority={active === 0} />
         )}
         {items.length > 1 && (
           <span className="gallery__count" aria-hidden="true">

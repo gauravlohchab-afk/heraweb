@@ -72,11 +72,11 @@ export default function TreatmentExplorer() {
                 <Media
                   key={t.slug}
                   image={t.image}
-                  alt=""
+                  alt={`${t.name} treatment at Hera Wellness Studio, Quezon City`}
                   ratio="4 / 5"
                   className={`tx__shot${t === current ? ' is-active' : ''}`}
                   sizes="(min-width: 900px) 45vw, 100vw"
-                  aria-hidden="true"
+                  aria-hidden={t === current ? undefined : 'true'}
                 />
               ))}
               <div className="tx__overlay">

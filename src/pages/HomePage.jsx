@@ -9,6 +9,8 @@ import TreatmentExplorer from '../components/treatments/TreatmentExplorer.jsx';
 import SectionHead from '../components/ui/SectionHead.jsx';
 import { Ripples } from '../components/decor/Decor.jsx';
 import { treatments } from '../data/treatments.js';
+import { studioFaqs } from '../data/faqs.js';
+import FaqSection from '../components/sections/FaqSection.jsx';
 
 export default function HomePage() {
   return (
@@ -38,7 +40,17 @@ export default function HomePage() {
       <StudioFilm num="" />
       <Philosophy num="04" />
       <BookingCTA />
-      <ContactPreview num="05" />
+      <FaqSection
+        num="05"
+        faqs={studioFaqs}
+        title={
+          <>
+            Good to <em>know.</em>
+          </>
+        }
+        intro="Booking, location, payment and the treatments we offer — answered."
+      />
+      <ContactPreview num="06" />
     </>
   );
 }
